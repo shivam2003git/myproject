@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tours & Travels</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        
+:root{
+    --orange:#ffa500;
+}
+*{
+    font-family: 'Nunito', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    outline: none; border:none;
+    text-decoration: none;
+    transition: all 0.2s linear;
+}
+*::selection{
+    background:var(--orange);
+    color: #fff;
+} 
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top:6rem;
+    scroll-behavior: smooth;
+}
+section{
+    padding: 2rem 9%;
+}
+
+
+span{
+    font-size: 3.5rem;
+    background: rgba(255,165,0,.2);
+    color: var(--orange);
+    border-radius: .5rem;
+    padding: 0rem 2rem;
+}
+.space{
+    background: none;
+}
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    color: #fff;
+    background: var(--orange);
+    padding: .8rem 3rem;
+    border: 2rem solid var(--orange);
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+.btn:hover{
+    background: rgba(255,165,0,.2);
+    color: var(--orange);
+}
+.heading{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin:4rem;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: black;
+    color: white;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 5%;
+
+}
+header #menu{
+    display: none;
+    cursor: pointer;
+    width: fit-content;
+    height: auto;
+    background-color: #eee;
+    position: absolute;
+    border: 4px;
+}
+header #menu .line1,
+header #menu .line2,
+header #menu .line3{
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    border-radius: 20px;
+    margin: 5px;
+}
+.active .line1{
+    transform:translate(0px,7px) rotate(45deg);
+}
+.active .line2{
+    opacity: 0;
+}
+.active .line3{
+    transform:translate(0px,-7px) rotate(-45deg);
+}
+
+header p{
+    font-size: 2.5rem;
+    color: white;
+    font-weight: bold;
+}
+header p:hover{
+    color: var(--orange);
+}
+
+header .navbar a{
+    color: white;
+    font-size: 2rem;
+    margin:0 .8rem;
+    text-decoration: none;
+}
+header .navbar a:hover {
+    text-decoration: underline;
+    color: var(--orange);
+}
+header .loginbar img{
+    border-radius: 50%;
+    object-fit: cover;
+   }
+
+header .loginbar{
+    background: white;
+    width: 50px;
+    border-radius: 50%;
+}
+
+body{
+    height: 300rem;
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 0;
+    min-height: 100vh;
+    
+}
+.home .content{
+    text-align: center;
+}
+.home .content h3{
+    font-size: 4.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 .3rem .5rem rgba(0,0,0,.1);
+}
+.home .content p{
+    font-size: 1.5rem;
+    color: #fff;
+    padding: .5rem 0;
+}
+
+.home .video-container video{
+    position: absolute;
+    top: 0;left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover; 
+}
+.home .controls{
+
+    border-radius: 5rem;
+    background: rgba(0,0,0,.3);
+    position: relative;
+    top: 15rem;
+    left: -46rem;
+
+}
+.home .controls .vid-btn{
+    height: 4rem;
+    /* width: 2rem; */
+    display: inline-block;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #fff;
+    margin: 0 .5rem;
+}
+.home .controls .vid-btn.active{
+    background: var(--orange);
+}
+
+/* packages */
+
+.gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .place-card {
+            border-radius: 10px;
+            overflow: hidden;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .place-card:hover {
+            transform: translateY(-10px);
+            cursor: pointer;
+        }
+
+        .place-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .place-info {
+            padding: 1.5rem;
+            background: #fff;
+        }
+
+        .place-info h3 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .place-info p {
+            font-size: 2rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .location {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .location i {
+            color: var(--orange);
+        }
+        .location span{
+            color: black;
+        }
+
+/*  services */
+.services .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.services .box-container .box{
+    flex: 1 1 30rem;
+    padding: 1rem;
+    border-radius: .5rem;
+    text-align: center;
+    /* box-shadow: 0 0 50px rgba(0,0,0,1); */
+}
+.services .box-container .box i{
+    
+    padding: 1rem 0;
+    font-size: 5rem;
+    color: var(--orange);
+}
+.services .box-container .box h3{
+    font-size: 1.5rem;
+    color: #333;
+}
+.services .box-container .box p{
+    font-size: 1.5rem;
+    color: #666;
+    padding: 1rem 0;
+}
+
+
+
+/* contact */
+
+.contact .row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+}
+.contact .row .image{
+    flex: 1 1 35rem;
+}
+.contact .row .image img{
+    width: 100%;
+}
+.contact .row form{
+    flex:1 1 50rem;
+    padding: 2rem;
+    box-shadow: 0 0 2rem rgba(0,0,0,1);
+    border-radius: .5rem;
+}
+.contact .row form .imputBox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+.input{
+    width: 49%;
+    margin: 1rem 0;
+    font-size: 2rem;
+    /* border: 1px solid black; */
+    box-shadow: 0 0 2rem rgba(0,0,0,1);
+}
+
+
+
+
+/* footer */
+
+.footer{
+    background: #333;
+}
+.footer .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.footer .box-container .box{
+    flex: 1 1 25rem;
+    padding: 1rem 0;
+}
+.footer .box-container .box h3{
+    font-size: 2.5rem;
+    color: var(--orange);
+    padding: .7rem 0;
+}
+.footer .box-container .box p{
+    font-size: 1.5rem;
+    color: #fff;
+    padding: .7rem 0;
+}
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.5rem;
+    padding: .7rem 0;
+    color: #eee;
+}
+.footer .box-container .box a:hover{
+    color: var(--orange);
+    text-decoration: underline;
+}
+.footer .credit{
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: normal;
+    color: #fff;
+    border-top: .1rem solid rgba(255, 255, 255, .2);
+}
+.footer .credit span{
+    color: var(--orange);
+}
+
+
+
+@media(max-width:1200px){
+    html{
+        font-size: 55%;
+    }
+   
+}
+@media(max-width:991px){
+    header{
+        padding: 2rem 5rem;
+    }  
+    section{
+        padding: 2rem;
+    } 
+    .gallery-container {
+        padding-top: 4.5rem;
+    }  
+       
+}
+@media(max-width:845px){
+    .home .controls{
+        top: -15rem;
+        left: 2rem;
+       } 
+    .home .controls span{
+        height: 2.5rem;
+        margin: 0.1rem;
+    }    
+}
+@media(max-width:768px){
+  header #menu{
+    display: block;
+
+  }
+  .heading{
+    margin: 0;
+  }
+  .heading span{
+    font-size: 3rem;
+    padding: 0;
+  }
+  header p{
+    margin:auto;
+    color: var(--orange);
+  }
+   header .navbar{
+    position: absolute;
+    top:100%;
+    left: 0;
+    right: 0;
+    background: #333;
+    border-top: .1rem rgba(255, 255, 255, .2);
+    clip-path: polygon(0 0,100% 0,100% 0,0 0);
+   }
+   header .navbar.active{
+    clip-path: polygon(0 0,19% 0,19% 100%,0 100%);
+   } 
+
+   header .navbar a{
+    display: block;
+    border-radius: .5rem;
+    padding: 1.5rem;
+    margin: 1.5rem;
+    background: #222;
+    width: 15%;
+   }    
+   
+   .home .controls{
+    top: -15rem;
+    left: 2rem;
+   }
+   .packages .heading span{
+    margin: 0 1rem;
+   }
+}
+@media(max-width:550px){
+    .heading{
+    margin: 0;
+  }
+  .heading span{
+    font-size: 3rem;
+    padding: 0;
+  }
+}
+@media(max-width:450px){
+    html{
+        font-size: 50%;
+    }
+    
+    .contact .row form .imputBox input{
+        width: 100%;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <div id="menu">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <p>Travel Trek</p>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <!-- <a href="login.php">book</a> -->
+            <a href="login.php">Packages</a>
+            <a href="#services">services</a>
+            <a href="#contact">contact</a>
+        </nav>
+        <a href="profile.php" id="login-btn" class="loginbar" style="background-color:white" >        
+        <img src='human.png' alt='' width='50px' height='50px' id="homelogo">
+        </a>
+        
+    </header>
+
+    <section class="home" id="home">
+        <div class="content">
+            <h3>advanture is woethwhile</h3>
+            <p>discover new place with us, advanture awaits</p>
+            <a href="login.php" class="btn">discover more</a>
+        </div>
+        <div class="controls">
+            <span class="vid-btn active" data-src="video/one.mp4"></span>
+            <span class="vid-btn" data-src="video/two.mp4"></span>
+            <span class="vid-btn" data-src="video/three.mp4"></span>
+            <span class="vid-btn" data-src="video/four.mp4"></span>
+            <span class="vid-btn" data-src="video/five.mp4"></span>
+        </div>
+        <div class="video-container">
+            <video src="video/one.mp4" id="video-slider" loop autoplay muted></video>
+        </div>
+    </section>
+
+
+   
+    <section class="packages" id="packages">
+        <h1 class="heading">
+            <span>p</span>
+            <span>a</span>
+            <span>c</span>
+            <span>k</span>
+            <span>a</span>
+            <span>g</span>
+            <span>e</span>
+          
+        </h1>
+        <div class="gallery-grid">
+        <a href="login.php" class="place-card">
+                <img src="images/taj-mahal.jpg" alt="Taj Mahal">
+                <div class="place-info">
+                    <h3>Taj Mahal</h3>
+                    <p>One of the seven wonders of the world, symbol of eternal love</p>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Agra, Uttar Pradesh</p>
+                    </div>
+                </div>
+            </a>
+            <div class="place-card">
+                <img src="images/gateway-india.jpg" alt="Gateway of India">
+                <div class="place-info">
+                    <h3>Gateway of India</h3>
+                    <p>Iconic arch monument built in 20th century</p>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Mumbai, Maharashtra</p>
+                    </div>
+                </div>
+            </div>
+            <div class="place-card">
+                <img src="images/goa-beaches.jpg" alt="Goa Beaches">
+                <div class="place-info">
+                    <h3>Goa Beaches</h3>
+                    <p>Famous for pristine beaches and vibrant nightlife</p>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Goa</p>
+                    </div>
+                </div>
+            </div>
+            <div class="place-card">
+                <img src="images/darjeeling.jpg" alt="Darjeeling">
+                <div class="place-info">
+                    <h3>Darjeeling</h3>
+                    <p>Famous hill station known for tea plantations</p>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>West Bengal</p>
+                    </div>
+                </div>
+            </div>
+            <div class="place-card">
+                <img src="images/shimla.jpg" alt="Shimla">
+                <div class="place-info">
+                    <h3>Shimla</h3>
+                    <p>Popular hill station and former summer capital of British India</p>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Himachal Pradesh</p>
+                    </div>
+                </div>
+            </div>
+            <div class="place-card">
+                <img src="images/manali.jpg" alt="Manali">
+                <div class="place-info">
+                    <h3>Manali</h3>
+                    <p>Popular hill station known for adventure sports</p>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Himachal Pradesh</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section class="services" id="services">
+        <h1 class="heading">
+            <span>s</span>
+            <span>e</span>
+            <span>r</span>
+            <span>v</span>
+            <span>i</span>
+            <span>c</span>
+            <span>e</span>
+            <span>s</span>
+        </h1>
+        <div class="box-container">
+            <div class="box">
+                <i class="fas fa-hotel"></i>
+                <h3>affordable hotels</h3>
+                <p>The burden of the disease itself is to be pursued, the adipiscing of the developer. Having found out
+                    the benefits of them, who has the pleasure of exercising as little as just the very corrupt!</p>
+
+            </div>
+            <div class="box">
+                <i class="fas fa-utensils"></i>
+                <h3>food and drinks</h3>
+                <p>The burden of the disease itself is to be pursued, the adipiscing of the developer. Having found out
+                    the benefits of them, who has the pleasure of exercising as little as just the very corrupt!</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-bullhorn"></i>
+                <h3>safty guide</h3>
+                <p>The burden of the disease itself is to be pursued, the adipiscing of the developer. Having found out
+                    the benefits of them, who has the pleasure of exercising as little as just the very corrupt!</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-globe-asia"></i>
+                <h3>around the world</h3>
+                <p>The burden of the disease itself is to be pursued, the adipiscing of the developer. Having found out
+                    the benefits of them, who has the pleasure of exercising as little as just the very corrupt!</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-plane"></i>
+                <h3>fastest travel</h3>
+                <p>The burden of the disease itself is to be pursued, the adipiscing of the developer. Having found out
+                    the benefits of them, who has the pleasure of exercising as little as just the very corrupt!</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-hiking"></i>
+                <h3>adventures</h3>
+                <p>The burden of the disease itself is to be pursued, the adipiscing of the developer. Having found out
+                    the benefits of them, who has the pleasure of exercising as little as just the very corrupt!</p>
+            </div>
+
+        </div>
+    </section>
+   
+   
+    <section class="contact" id="contact">
+        <h1 class="heading">
+            <span>c</span>
+            <span>o</span>
+            <span>n</span>
+            <span>t</span>
+            <span>a</span>
+            <span>c</span>
+            <span>t</span>
+        </h1>
+        <div class="row">
+            <div class="image">
+                <img src="contact.jpg" alt="">
+            </div>
+            <form >
+                <div class="inputBox">
+                    <input type="text" placeholder="name" class="input" >
+                    <input type="email" placeholder="email" class="input">
+                </div>
+                <div class="inputBox">
+                    <input type="number" placeholder="number" class="input">
+                    <input type="text" placeholder="subject" class="input" >
+                </div>
+                <textarea placeholder="message" ></textarea><br>
+                <a href="login.php" class="btn">Login</a>
+            </form>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>about us</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem tempora corrupti facilis
+                    sequi? Voluptatem similique inventore soluta ipsum odio excepturi.</p>
+            </div>
+            <div class="box">
+                <h3>branch locations</h3>
+                <a href="#">india</a>
+                <a href="#">USA</a>
+                <a href="#">japan</a>
+                <a href="#">france</a>
+            </div>
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="index.php">home</a>
+                <!-- <a href="login.php">book</a> -->
+                <a href="login.php">packages</a>
+                <a href="#services">services</a>
+                <a href="#contact">contact</a>
+            </div>
+            <div class="box">
+                <h3>follow us</h3>
+                <a href="#">facebook</a>
+                <a href="#">instagram</a>
+                <a href="#">twitter</a>
+                <a href="#">linkedin</a>
+            </div>
+
+        </div>
+        <h1 class="credit"> credit by <span> mr. web designer</span> | all rights reserved!</h1>
+    </section>
+
+    <script>
+        
+let name=document.getElementsByClassName(".name");
+let num=document.getElementsByClassName(".num");
+let total=document.getElementById("#total");
+
+let menu=document.querySelector("#menu");
+let navbar=document.querySelector(".navbar");
+
+menu.addEventListener("click",function(){
+    menu.classList.toggle("active");
+    navbar.classList.toggle("active");
+});
+
+let videoBtn=document.querySelectorAll(".vid-btn");
+let video=document.querySelector(".video-container video");
+let controls=document.querySelector(".controls");
+
+videoBtn.forEach(btn=>{
+    btn.addEventListener("click",()=>{
+        video.src=btn.getAttribute("data-src");
+        controls.classList.add("active");
+        videoBtn.forEach(vidBtn=>{
+            vidBtn.classList.remove("active");
+        });
+        btn.classList.add("active");
+    });
+});
+
+
+
+    </script>
+    
+</body>
+
+</html>
